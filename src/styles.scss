@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+// Variáveis de cores do tema IDE
+$background-dark: #1e1e1e;  // Cor de fundo do VS Code
+$text-color: #d4d4d4;      // Cor do texto principal
+$comment-color: #6A9955;    // Cor de comentários
+$keyword-color: #569CD6;    // Cor de palavras-chave
+$string-color: #CE9178;     // Cor de strings
+$method-color: #DCDCAA;     // Cor de métodos
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
+  scroll-behavior: smooth;
+  background-color: $background-dark;
+  color: $text-color;
+}
+
+// Estilo de código
+.code-text {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  .keyword { color: $keyword-color; }
+  .string { color: $string-color; }
+  .method { color: $method-color; }
+  .comment { color: $comment-color; }
+}
+
+// Tipografia
+.mat-typography {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 300;
+    color: $text-color;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: $method-color;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: $keyword-color;
+  }
+}
+
+// Animações
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Estilos dos cards
+.mat-mdc-card {
+  background-color: #252526 !important;  // Cor de fundo do editor VS Code
+  border: 1px solid #323232;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+    border-color: $keyword-color;
+  }
+}
+
+// Botões
+.mat-mdc-button {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  border-radius: 4px !important;
+  padding: 0 20px !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-color: $method-color !important;
+  }
+}
+
+// Scrollbar personalizada
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+// Links
+a {
+  color: $keyword-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $method-color;
+    text-decoration: underline;
+  }
+}
